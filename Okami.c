@@ -50,8 +50,6 @@
 
 
 
-unsigned char *commServer[] = { "143.198.150.34:1590" };
-
 
 char *getBuild() { 
 #if defined(__x86_64__) || defined(_M_X64)
