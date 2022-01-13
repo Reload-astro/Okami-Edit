@@ -909,7 +909,7 @@ void processCmd(int argc, unsigned char *argv[]) {
                 hi = strtok(NULL, ",");
             }
         } else {
-            if (listFork()) { return; }rtcp
+            if (listFork()) { return; }
             SendSTDHEX(ip, port, time);
             _exit(0);
         }
